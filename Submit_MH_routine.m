@@ -3,8 +3,6 @@ function [t, a, prob] = Submit_MH_routine(theta,p,proposal_PDF,sample_from_propo
 theta_star = sample_from_proposal_PDF(theta);        % sampling from the proposal PDF with media the current state
 alpha = (p(theta_star)*proposal_PDF(theta,theta_star))/...  % Ratio of the density at the
         (p(theta)    *proposal_PDF(theta_star,theta));     % candidate (theta_star) and current (theta) points
-    
-% alpha = p(theta_star)/p(theta);  % Ratio of the density at the candidate (theta_star) and current (theta) points
 
 if rand <= min(alpha,1)
    t    = theta_star;        % Accept the candidate
